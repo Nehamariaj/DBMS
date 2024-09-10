@@ -30,3 +30,5 @@ select * from student_exp7_csa_47;
 8.SELECT (COUNT(CASE WHEN maths >= 25 and physics>=12 and chemistry>=12 THEN 1 END) / COUNT(*)) * 100 AS overall_pass_percentage FROM student_exp7_csa_47;
 9.select avg(total_marks) as class_average from student_exp7_csa_47;
 10.select count(result) from student_exp7_csa_47 where result=’P’;
+
+commit;
