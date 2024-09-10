@@ -1,0 +1,32 @@
+***CREATING TABLE student_exp7_csa_47 ***
+create table student_exp7_csa_47(roll_no number(10),stud_name varchar(20),physics number(20,3),chemistry number(20,3),maths number(20,3),primary key (roll_no));
+
+***INSERTING VALUES INTO TABLE student_exp7_csa_47****
+insert into student_exp7_csa_47 values ('1','Adam',20,20,33);
+insert into student_exp7_csa_47 values ('2','Bob',18,9,41);
+insert into student_exp7_csa_47 values ('3','Bright',22,7,31);
+insert into student_exp7_csa_47 values ('4','Duke',13,21,20);
+insert into student_exp7_csa_47 values ('5','Elvin',14,22,23);
+insert into student_exp7_csa_47 values ('6','Fletcher',2,10,48);
+insert into student_exp7_csa_47 values ('7','Georgina',22,12,22);
+insert into student_exp7_csa_47 values ('8','Mary',24,14,31);
+insert into student_exp7_csa_47 values ('9','Tom',19,15,24);
+insert into student_exp7_csa_47 values ('10','Zack',8,20,36);
+select * from student_exp7_csa_47;
+
+1.select avg(physics) from student_exp7_csa_47;
+2.select max(maths) as highest_marks_maths from student_exp7_csa_47;
+3.select min(chemistry) as lowest_marks_chemistry from student_exp7_csa_47;
+4.select count(physics) from student_exp7_csa_47 where physics>=12;
+5.select stud_name from student_exp7_csa_47 where physics>=12 and chemistry>=12 and maths>=25;
+
+6.alter table student_exp7_csa_47 add (Total_marks number(8,2),Result varchar(2));
+  update table student_exp7_csa_47 set Total_marks=Physics+Chemistry+Maths;
+  update table student_exp7_csa_47 set Result=’P’ where physics>=12 and chemistry>=12 and maths>=25;
+  update table student_exp7_csa_47 set Result=’F’ where physics<12 Or chemistry<12 Or maths<25;
+  select roll_no,stud_name,total marks,result from student_exp7_csa_47;
+
+7.SELECT (COUNT(CASE WHEN maths >= 25 THEN 1 END) / COUNT(*)) * 100 AS maths_pass_percentage FROM student_exp7_csa_47;
+8.SELECT (COUNT(CASE WHEN maths >= 25 and physics>=12 and chemistry>=12 THEN 1 END) / COUNT(*)) * 100 AS overall_pass_percentage FROM student_exp7_csa_47;
+9.select avg(total_marks) as class_average from student_exp7_csa_47;
+10.select count(result) from student_exp7_csa_47 where result=’P’;
