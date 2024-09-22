@@ -9,6 +9,7 @@ insert into items_exp9_csa_47 values('I2','Chair','Furniture',500,200);
 insert into items_exp9_csa_47 values('I3','Notebook','Stationary',50,500);
 insert into items_exp9_csa_47 values('I4','Samsung Galaxy S4','Electronics',20000,30);
 insert into items_exp9_csa_47 values('I5','Harry Potter','Novels',200,10);
+insert into items_exp9_csa_47 values('I6','Pencils','Stationary',5,10000);
 select * from items_exp9_csa_47;
 
 insert into customers_exp9_csa_47 values('C1','John Doe','123 Maple Street Springfield','California');
@@ -23,8 +24,13 @@ ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MON-YYYY';
 
 insert into orders_exp9_csa_47 values('O1','I1','C6',1,'12-JAN-2012');
 insert into orders_exp9_csa_47 values('O2','I3','C3',30,'21-JAN-2023');
-insert into orders_exp9_csa_47 values('O3','I5','C3',10,'21-JAN-2023');
+insert into orders_exp9_csa_47 values('O3','I6','C3',10,'21-JAN-2023');
 insert into orders_exp9_csa_47 values('O4','I4','C1',1,'2-JUN-2024');
 insert into orders_exp9_csa_47 values('O5','I4','C4',2,'6-MAY-2010');
 select * from orders_exp9_csa_47;
 --desc orders_exp9_csa_47;
+
+insert into delivery_exp9_csa_47 values('D1','C6','O1');
+insert into delivery_exp9_csa_47 values('D2','C3','O2');
+insert into delivery_exp9_csa_47 values('D3','C3','O3');
+select * from delivery_exp9_csa_47;
