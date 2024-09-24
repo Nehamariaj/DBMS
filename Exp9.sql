@@ -35,3 +35,8 @@ insert into delivery_exp9_csa_47 values('D2','C3','O2');
 insert into delivery_exp9_csa_47 values('D3','C3','O3');
 insert into delivery_exp9_csa_47 values('D4','C4','O5');
 select * from delivery_exp9_csa_47;
+
+select * from customers_exp9_csa_47 c Join orders_exp9_csa_47 o on c.cust_id=o.cust_id;
+select * from customers_exp9_csa_47 c Join delivery_exp9_csa_47 d on c.cust_id=d.cust_id;
+select c.cust_id,c.cust_name,o.order_date from customers_exp9_csa_47 c Join orders_exp9_csa_47 o on c.cust_id=o.cust_id where c.cust_name Like 'J%';
+SELECT c.cust_id, c.cust_name,sub.item_id, sub.item_name, sub.price FROM customers_exp9_csa_47 c JOIN (SELECT o.cust_id,i.item_id, i.item_name, i.price FROM orders_exp9_csa_47 o JOIN items_exp9_csa_47 i ON i.item_id = o.item_id) sub ON c.cust_id = sub.cust_id WHERE c.cust_name LIKE 'Mickey %';
