@@ -12,17 +12,16 @@ insert into student_exp7_csa_47 values ('9','Tom',19,15,24);
 insert into student_exp7_csa_47 values ('10','Zack',8,20,36);
 select * from student_exp7_csa_47;
 
-delete from student_exp7_csa_47;
-drop  table student_exp7_csa_47;
+--delete from student_exp7_csa_47;
+--drop  table student_exp7_csa_47;
 
 select avg(physics) from student_exp7_csa_47;
 select max(maths) as highest_marks_maths from student_exp7_csa_47;
 select min(chemistry) as lowest_marks_chemistry from student_exp7_csa_47;
 select count(physics) from student_exp7_csa_47 where physics>=12;
-
-alter table student_exp7_csa_47 add(total_marks number(10,5),stu_result varchar(10));
 select stud_name from student_exp7_csa_47 where physics>=12 and chemistry>=12 and maths>=25;
-alter table student_exp7_csa_47 add (total_marks number(8,2),result varchar(2));
+--6)
+alter table student_exp7_csa_47 add(total_marks number(10,5),stu_result varchar(10));
 update  student_exp7_csa_47 set total_marks=physics+chemistry+maths;
 update student_exp7_csa_47 set result='P' where physics>=12 and chemistry>=12 and  maths>=25;
 update student_exp7_csa_47 set result='F' where physics<12 or chemistry<12 or  maths<25;
