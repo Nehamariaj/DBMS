@@ -56,3 +56,5 @@ select * from customers_exp9_csa_47 c Right Join orders_exp9_csa_47 o on c.cust_
 
 select state,count(*) as number_of_customers from customers_exp9_csa_47 group by(state);
 select category,item_id,item_name,price from items_exp9_csa_47 where price>(select avg(price) from items_exp9_csa_47 )group by category,item_id,item_name,price;
+
+commit;
