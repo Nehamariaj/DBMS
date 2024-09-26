@@ -43,11 +43,14 @@ SELECT c.cust_id, c.cust_name,sub.item_id, sub.item_name, sub.price FROM custome
 select c.cust_id,c.cust_name,c.address,c.state,sub.order_id,sub.item_id,sub.quantity,sub.order_date,sub.delivery_id from customers_exp9_csa_47 c Join(select o.order_id,o.item_id,o.cust_id,o.quantity,o.order_date,d.delivery_id from orders_exp9_csa_47 o Left Join delivery_exp9_csa_47 d on o.order_id=d.order_id)sub on c.cust_id=sub.cust_id where sub.order_date>'31-JAN-2013'and sub.delivery_id IS NULL;
 select item_id from orders_exp9_csa_47 Union (select item_id from orders_exp9_csa_47 o Join delivery_exp9_csa_47 d on o.order_id=d.order_id where d.delivery_id is Null); 
 select distinct c.cust_name from customers_exp9_csa_47 c Join delivery_exp9_csa_47 d on c.cust_id=d.cust_id ;
+--8)
+select c.cust_name from customers_exp9_csa_47 c Join orders_exp9_csa_47 o on c.cust_id = o.cust_id Minus select c.cust_name from customers_exp9_csa_47 c Join delivery_exp9_csa_47 d on c.cust_id = d.cust_id;
+select c.cust_name from customers_exp9_csa_47 c Join orders_exp9_csa_47 o on c.cust_id = o.cust_id Intersect select c.cust_name from customers_exp9_csa_47 c Join orders_exp9_csa_47 o on c.cust_id = o.cust_id Where o.cust_id Not In (select cust_id from delivery_exp9_csa_47);    
 
 select c.cust_name from customers_exp9_csa_47 c Join orders_exp9_csa_47 o on c.cust_id = o.cust_id group by c.cust_name order by count(o.order_id) desc fetch first 1 rows only;
 select c.cust_id,c.cust_name,c.address,c.state,sub.item_name,sub.price from customers_exp9_csa_47 c Join (select o.cust_id, i.item_name, i.price from items_exp9_csa_47 i Join orders_exp9_csa_47 o on i.item_id = o.item_id where i.price > 5000) sub on c.cust_id = sub.cust_id;
 select distinct c.cust_name,c.address from customers_exp9_csa_47 c Join orders_exp9_csa_47 o on c.cust_id=o.cust_id where o.item_id not in (select item_id from items_exp9_csa_47 where item_name='Samsung Galaxy S4');
-
+--12)
 select * from customers_exp9_csa_47 c Left Join orders_exp9_csa_47 o on c.cust_id=o.cust_id;
 select * from customers_exp9_csa_47 c Right Join orders_exp9_csa_47 o on c.cust_id=o.cust_id;
 
