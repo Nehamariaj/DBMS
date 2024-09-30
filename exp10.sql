@@ -6,7 +6,7 @@ insert into bank values ('B3','HDFC','Kottayam','Pala','HDFC985');
 commit;
 select * from bank;
 
-savepoint a; --label name is a
+savepoint a; --label name ='a'
 
 delete from bank where bank_id='B2';
 select * from bank;
