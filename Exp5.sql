@@ -57,3 +57,5 @@ select * from emp_exp5_csa_47;
 
 ***15. List all departments in reverse in uppercase format (avoid duplicates)***
  SQL>select distinct upper(reverse(dept)) from emp_exp5_csa_47;
+
+commit;
