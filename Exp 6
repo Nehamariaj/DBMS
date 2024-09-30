@@ -1,53 +1,29 @@
-***1.Find the Ceil value of 47.29***
- SQL>select ceil(47.29) from dual;
-
-***2.Round up -47.9 using the CEIL function***
-  SQL>select ceil(-47.9) from dual; 
-
-***3.Ceil the result of 47 divided by 3.***
- SQL>select ceil(47/3) from dual; 
-
-***4.Find the floor value of 47.76***
-  SQL>select floor(47.76)from dual;
-
-***5. Round down -47.3 using the FLOOR function.***
-  SQL>select floor(-47.3) from dual;
-
-***6.Floor the result of 47 divided by 4.***
-  SQL>select floor(47/4) from dual; 
-
-***7. Find the square root of 625***
- SQL>select sqrt(625) from dual; 
-
-***8.Calculate the square root of 47 using the SQRT function.***
- SQL>select sqrt(47) from dual; 
-
-***9.Find the abs value of 47.29***
-  SQL>select abs(47.29) from dual; 
-
-***10.Find the absolute value of a negative number, - 47.14***
- SQL>select abs(-47.14) from dual; 
-
-***11.Determine the absolute value of a numeric column, -47.***
- SQL>select abs(-47)from dual; 
-
-***12.Display the current date (set for the operating system on which the database server resides) using SYSDATE as NOW***
-
-
-***13. Use To_Char() to display date and time in different formats***
-
-
-***14. Display system date and time using SYSTIMESTAMP ***
-
-
-***15. Demonstrate the use of LEASTfunction in string, by passing three strings as arguments***
-
-
-***16. Demonstrate the use of GREATEST function in string, by passing three strings as arguments***
-
-
-***17.Remove leading spaces from the string ' Trim me'.***
-
-
-***18.Remove Trailing spaces from the string ‘I love India ***
-
+select ceil(47.29) from dual;
+select ceil(-47.9) from dual;
+select ceil(47/3) from dual;
+select floor(47.76)from dual;
+select floor(-47.3)  from dual;
+select floor(47/4) from dual;
+select sqrt(625) from dual;
+select sqrt(47)  from dual;
+select abs(47.29) from dual;
+select abs(-47.14) from dual;
+select abs(-47)from dual;
+select sysdate as now_47 from dual;
+select to_char(sysdate,'dd:mm:yyyy')as date_format,to_char(sysdate,'hh:mi:ss')as time_format from dual;
+select systimestamp from dual;
+select least('Apple','Orange','Banana')from dual;
+select greatest('Apple','Orange','Banana')from dual;
+select ltrim('        Trim me')from dual;
+select rtrim('I Love India          ')from dual;
+select rpad('Neha Maria',15,'X')from dual;
+select rpad('123',6,0)from dual;
+select reverse('uoy evol I') from dual;
+select case when'racecar'=reverse('racecar')then 'Pallindrome' else 'Not Pallindrome' end as result from dual;
+select length('Oracle Database') from dual;
+select 'Oracle'||' '||'SQL'||' '||'is'||' '||'powerful'||' '||'and'||' '||'flexible' from dual;
+select concat('Neha ','Joji')from dual;
+select substr('India is my country',7,2) from dual;
+select substr('NehaMaria',3,3) from dual;
+select substr('Substring',1,3) from dual;
+commit;
