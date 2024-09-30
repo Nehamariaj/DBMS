@@ -11,6 +11,7 @@ create table book_issue(issue_id varchar(20),date_of_issue varchar(10),book_id v
 create table book_return(issue_id varchar(20),actual_date_of_return varchar(20),late_days varchar(10),late_fee varchar(10),primary key(issue_id),foreign key(issue_id) references book_issue(issue_id));
 create table late_fee_rule(from_days number(10),to_days number(20),amount number(20));
 commit;
+
 insert into author values('a1','chetan bhagat','cb@gmail.com',9080706050,'available');
 insert into author values('a2','Jane Austin','ja@gmail.com',9181716151,'available');
 select * from author;
