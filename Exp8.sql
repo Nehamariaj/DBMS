@@ -11,7 +11,7 @@ insert into customer_exp8_csa_47 values('C6','Mary John', 9834512340,'20 Oak Lan
 insert into customer_exp8_csa_47 values('C7','Michael Smith',3498560120,'42 High Street','London', 93423,'UK'); 
 select * from customer_exp8_csa_47; 
 
-ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MON-YYYY';
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MON-YYYY';--to set default date format in a worksheet
 
 Insert Into employee_exp8_csa_47 Values ('E1','Brown','James','16-May-1984',Null); 
 Insert Into employee_exp8_csa_47 Values ('E2','Patel','Anjali','29-Aug-1991',Null);
