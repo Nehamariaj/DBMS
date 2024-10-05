@@ -25,7 +25,7 @@ desc branch_exp12;
 create view bank_headoffice as select * from bank_exp12 where headoffice='Ernakulam';
 select * from bank_headoffice;
 
-create view bank_branch as select * from bank_exp12 where headoffice='Kottayam';
+create view bank_branch as select * from branch_exp12 where branchname='Kottayam';
 select * from bank_branch;
 
 commit;
