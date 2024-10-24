@@ -112,4 +112,48 @@ end;
 
 select * from exp_list_exp16;
 
+--4)
+Create table employee_list_exp16 (id varchar(10) primary key,name varchar(30),monthly_salary number(20,3));
+desc employee_list_exp16;
+
+insert into employee_list_exp16 values('E1','Sumit Kumar',30000);
+insert into employee_list_exp16 values('E2','Priya Nair',4500);
+insert into employee_list_exp16 values('E3','Rohan Gupta',75000);
+insert into employee_list_exp16 values('E4','Ananya Singh',25000);
+insert into employee_list_exp16 values('E5','Vikram Patel',160000);
+select * from employee_list_exp16;
+
+DECLARE 
+CURSOR temp IS 
+SELECT id,name,monthly_salary FROM employee_list_exp16;
+tempvar temp%ROWTYPE;
+new_monthly_salary number(20,3);
+annual_salary number(20,3);
+BEGIN 
+OPEN temp;
+LOOP
+FETCH temp INTO tempvar;
+EXIT WHEN temp%NOTFOUND;     
+annual_salary := tempvar.monthly_salary*12;        
+IF annual_salary < 60000 THEN
+new_monthly_salary :=tempvar.monthly_salary+(tempvar.monthly_salary*0.25);
+ELSIF annual_salary>=60000 and annual_salary<200000 THEN
+new_monthly_salary := tempvar.monthly_salary+(tempvar.monthly_salary*0.20);
+ELSIF annual_salary >=200000 and annual_salary<500000 THEN
+new_monthly_salary := tempvar.monthly_salary+(tempvar.monthly_salary*0.15);
+ELSIF annual_salary >=500000 THEN
+new_monthly_salary := tempvar.monthly_salary+(tempvar.monthly_salary*0.10);
+END IF;
+UPDATE employee_list_exp16 
+SET monthly_salary = new_monthly_salary 
+WHERE id = tempvar.id;
+END LOOP;     
+CLOSE temp; 
+EXCEPTION
+WHEN OTHERS THEN
+DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+end;
+
+select * from employee_list_exp16;
+
 commit;
