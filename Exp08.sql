@@ -37,4 +37,8 @@ select city,count(customer_id)from customer_exp8_csa_47 Group By city;
 select * from customer_exp8_csa_47 where customer_id in(select customer_id from order_exp8_csa_47 group by customer_id having count(*)>2); 
 SELECT city, COUNT(*) AS customer_count FROM customer_exp8_csa_47 GROUP BY city HAVING COUNT(*) > 3;
 
+--another method to do the last 2 sql queries:
+select customer_id,count(order_id) from order_exp8_csa_47 group by customer_id having count(*)>2;
+select city,count(customer_id) from customer_exp8_csa_47 group by city having count(*)>3;
+
 commit;
